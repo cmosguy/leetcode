@@ -18,6 +18,15 @@ class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         max_sum = nums
 
+        maxsub=nums[0]
+        currsum=0
+        for i in nums:
+            if(currsum<0):
+                currsum=0
+            currsum+=i
+            maxsub= max(maxsub,currsum)
+        return maxsub
+
         # print("originals nums: {} = {}".format(''.join(str(nums)),str(sum(nums))))
         if len(nums) == 1:
             max_sum = nums
